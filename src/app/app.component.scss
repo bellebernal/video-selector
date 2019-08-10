@@ -1,0 +1,24 @@
+html {
+        display: flex;
+        flex-direction: row;
+        flex-direction: row-reverse;
+        align-items: wrap;
+        justify-content: center;
+        min-height: 100vh;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        background: slategray;
+        background-size: cover;
+}
+
+
+app-selector {
+    display: flex;
+    align-self: flex-start;
+
+}
+
+app-player {
+    align-self: center;
+}

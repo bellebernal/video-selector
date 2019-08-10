@@ -1,0 +1,160 @@
+html {
+    box-sizing: border-box;
+    background: black;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+.player-container {
+    max-width: 875px;
+    border: 2px solid rgba(0,153,224,0.9);
+    box-shadow: 0 0 10px rgba(255,136,0,0.9);
+    overflow: hidden;
+    position: relative;
+}
+
+// support full screen
+.player-container:fullscreen {
+    width: 100%;
+}
+
+.player-container:-webkit-full-screen {
+    width: 100%;
+}
+
+.video-content {
+    width: 100%;
+    margin-bottom: -1%;
+}
+
+.player-container:hover .progress-bar {
+    height: 20px;
+}
+
+.player-container:hover .player-controller {
+    transform: translateY(0);
+}
+
+.player-controller {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    background: rgba(0,0,0,0.3);
+    bottom: 0;
+    height: 50px;
+    width: 100%;
+    transform: translateY(100%) translate(-5px);
+    transition: all .5s;
+}
+
+.progress-bar {
+    position: relative;
+    display: flex;
+    //flex-basis: 100%;
+    height: 100%;
+    transition: height 0.3s;
+    background: rgba(0,0,0,0.4);
+    cursor: pointer;
+}
+
+.progress-fill {
+    display: flex;
+    flex: 1;
+    flex-basis: 100%;
+
+}
+
+.controller-buttons {
+    display: flex;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.play-button, .player-skip-button {
+    display: flex;
+    background: none;
+    border: 0;
+    line-height: 1;
+    outline: 0;
+    padding-right: 15px;
+    cursor: pointer;
+    max-width: 50px;
+}
+
+.play-button:focus fa-icon, .player-skip-button:focus fa-icon {
+    color: rgba(255,136,0,0.9);
+}
+
+fa-icon {
+    color: white;
+    cursor: pointer;
+    //max-width: 50px;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.player-volume {
+    width: 10px;
+    height: 30px;
+}
+
+input[type=range] {
+    width: 30%;
+    margin: -2px 4px;
+    background: transparent;
+    -webkit-appearance: none;
+}
+
+input[type=range]:focus {
+    outline: none;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 9px;
+    background: rgba(142, 197, 223, 0.982);
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    border: 0.5px solid rgba(0,153,224,0.9);
+    border-radius: 1.3px;
+    cursor: pointer;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 16px;
+    height: 16px;
+    margin-top: -3.5px;
+    background: rgba(255,136,0,0.9);
+    cursor: pointer;
+}
+
+input[type=range]:focus::-webkit-slider-runnable-track {
+    background:  rgba(142, 197, 223, 0.982);
+    border: 0.5px solid rgba(0,153,224,0.9); 
+    }
+
+// firefox browser
+input[type=range]::-moz-range-track {
+    width: 100%;
+    height: 9px;
+    background: rgba(142, 197, 223, 0.982);
+    border: 0.5px solid rgba(0,153,224,0.9);
+    border-radius: 1.3px;
+    cursor: pointer;
+}
+
+input[type=range]::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    background: rgba(255,136,0,0.9);
+    cursor: pointer;
+}
