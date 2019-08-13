@@ -1,9 +1,18 @@
-import { Component, OnInit, Injectable, Output, EventEmitter } from '@angular/core';
+import { 
+  Component,
+  OnInit,
+  Injectable,
+  Output,
+  EventEmitter,
+  ViewChild,
+  ElementRef
+} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { IResponse } from './response.model';
 import { RequestServce } from './request.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
+
 
 @Component({
   selector: 'app-selector',
@@ -13,10 +22,12 @@ import { Observable } from 'rxjs';
 
 @Injectable()
 export class SelectorComponent implements OnInit {
-  fetchedData: IResponse[] = [];
+    fetchedData: IResponse[] = [];
     private url$: Observable<any>;
     private id: string;
     @Output() src: string;
+    // @ViewChild('body') body: ElementRef;
+    // @ViewChild('modal') playerModal: ElementRef;
 
   constructor(
     private http: HttpClient,
@@ -51,6 +62,8 @@ export class SelectorComponent implements OnInit {
     //   };
     // });
 
+    // @Output()
+    // backdropClick: EventEmitter<MouseEvent>
 
   ngOnInit() {
   }

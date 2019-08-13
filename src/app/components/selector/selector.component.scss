@@ -8,23 +8,17 @@ html {
 .jumbotron {
         display: flex;
         flex-wrap: wrap;
-        //background: rgba(0,153,224,0.9);
+        height: 100%;
+        margin-left: 10px;
         background: linear-gradient(135deg, #2869EB 0%,#28B0EB 48%,#596BEA 100%);
         color: rgb(225, 222, 222);
 
 }
 
-@media screen and (orientation: portrait) and (min-width: 375px) and (max-width: 780px) {
-        .jumbotron h1 { font-size: 25px; }
-        .jumbotron p { font-size: 15px; }
-}
-
 .card-columns {
         padding: 50px 100px 100px 100px;
         flex-wrap: wrap;
-        // @include media-breakpoint-only(lg) {
-        //   column-count: 4;
-        // }
+        
         // @include media-breakpoint-only(xl) {
         //   column-count: 5;
         // }
@@ -52,6 +46,72 @@ div.card:hover {
         color: black;
 }
 
-// .card-title, .card-text {
-//         color:rgba(0,153,224,0.9);
-// }
+
+
+@media screen and (min-width: 500px) and (max-width: 1018px) {
+        // .jumbotron h1 { font-size: 25px; }
+        // .jumbotron p { font-size: 15px; }
+
+        html {
+                display: flex;
+                justify-items: flex-start;
+                flex-direction: column;
+        }
+
+        .jumbotron {
+                display: flex;
+                flex-wrap: wrap;
+                margin-left: 0;
+                margin-top: 10px;
+                margin-bottom: 150px;
+                .container {
+                        display: flex;
+                        flex-direction: column;
+                }
+
+                h1 { 
+                        display: flex;
+                        flex-wrap: wrap;
+                        font-size: 25px;
+                 }
+
+                p { font-size: 15px; }
+        }
+
+        .card-columns {
+                padding: 50px;
+                // flex-direction: row;
+                // flex-wrap: wrap;
+                column-count: 2;
+        }
+}
+
+@media screen and (orientation: portrait) and (min-width: 325px) and (max-width: 678px) {
+        // .jumbotron h1 { font-size: 25px; }
+        // .jumbotron p { font-size: 15px; }
+
+        html {
+                display: flex;
+                justify-items: flex-start;
+                flex-direction: column;
+        }
+        
+        .jumbotron {
+                display: flex;
+                flex-wrap: wrap;
+                margin-top: 10px;
+                margin-left: 0px;
+                .container {
+                        display: flex;
+                        flex-direction: column;
+                }
+
+                h1 { 
+                        display: flex;
+                        flex-wrap: wrap;
+                        font-size: 25px;
+                 }
+
+                p { font-size: 15px; }
+        }
+}

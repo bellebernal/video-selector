@@ -11,8 +11,10 @@ import {
   faBackward,
   faForward,
   faVolumeUp,
-  faPause
+  faPause,
+  faTimesCircle
 } from '@fortawesome/free-solid-svg-icons';
+// import {OverlayModule} from '@angular/cdk/overlay';
 import { HttpClientModule } from '@angular/common/http';
 import { Routes, RouterModule } from '@angular/router';
 import { PlayerComponent } from './components/player/player.component';
@@ -39,7 +41,8 @@ const routes: Routes = [
     BrowserModule,
     FontAwesomeModule,
     HttpClientModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    // OverlayModule
   ],
   providers: [],
   bootstrap: [AppComponent]
@@ -47,6 +50,6 @@ const routes: Routes = [
 
 export class AppModule {
   constructor() {
-    library.add(fas, faPlay, faPause, faBackward, faForward, faVolumeUp);
+    library.add(fas, faPlay, faPause, faBackward, faForward, faVolumeUp, faTimesCircle);
   }
 }

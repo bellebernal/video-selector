@@ -1,7 +1,11 @@
 
 <html>
- 
   <div class="player-container">
+    <!-- <button class="close-button"> -->
+        <a class="close-button" [routerLink]="['']" routerLinkActive="active">
+        <fa-icon [icon]="['fas', 'times-circle']"></fa-icon>
+        </a>
+    <!-- </button> -->
     <video class="video-content" #videoContent (timeupdate)="setUpdatedTime($event)" src="http://test-cdn.selectablemedia.com/test/a/bbb/assets/video/bbb_trailer_1080p.mp4"></video>
     <!-- <video class="video-content" #videoContent (timeupdate)="setUpdatedTime($event)" src="{{src}}"></video> -->
     <div class="player-controller" #player>
@@ -13,7 +17,7 @@
             <fa-icon #playIcon [icon]="['fas', 'play']" *ngIf="!isPlaying" (click)="!isPlaying = isPlaying"></fa-icon>
             <fa-icon #pauseIcon [icon]="['fas', 'pause']" *ngIf="isPlaying" (click)="isPlaying = !isPlaying"></fa-icon>
         </button>
-        <fa-icon [icon]="['fas', 'volume-up']"color="rgba(255,136,0,0.9)"></fa-icon>
+        <fa-icon [icon]="['fas', 'volume-up']"></fa-icon>
         <input type="range" name="volume" class="player-volume" #playerVolume min="0" max="1" step="0.1" value="1">
         <button skip="-10" class="player-skip-button" #skipButton>
           <div>
@@ -28,5 +32,5 @@
       </div>
     </div>
   </div>
-
 </html>
+<router-outlet #modal></router-outlet>

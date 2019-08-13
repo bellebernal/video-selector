@@ -1,6 +1,6 @@
 html {
     box-sizing: border-box;
-    background: black;
+    // background: black;
     background-size: cover;
     display: flex;
     align-items: center;
@@ -8,10 +8,41 @@ html {
     min-height: 100vh;
     margin: 0;
     padding: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    background-color: rgba(0,0,0,0.5); /*dim the background*/
 }
 
 *, *:before, *:after {
     box-sizing: inherit;
+}
+
+.player-container:hover .close-button {
+    transform: translateY(0);
+}
+
+.close-button {
+    display: flex;
+    // flex-direction: column-reverse;
+    cursor: pointer;
+    color: orangered;
+    // align-content: flex-end;
+    // flex-direction: column;
+    // position: absolute;
+    background: rgba(245, 138, 66, 0.3);
+    top: 0;
+    height: 23px;
+    width: 0;
+    transform: translateY(-240%) translate(-5px);
+    transition: all .5s;
+}
+
+.close-button:hover fa-icon {
+    color: rgba(255,136,0,0.9);
 }
 
 .player-container {
@@ -32,6 +63,7 @@ html {
 }
 
 .video-content {
+    height: 100%;
     width: 100%;
     margin-bottom: -1%;
 }
@@ -66,12 +98,12 @@ html {
     cursor: pointer;
 }
 
-.progress-fill {
-    display: flex;
-    flex: 1;
-    flex-basis: 100%;
+// .progress-fill {
+//     display: flex;
+//     flex: 1;
+//     flex-basis: 100%;
 
-}
+// }
 
 .controller-buttons {
     display: flex;
@@ -121,7 +153,7 @@ input[type=range]:focus {
 input[type=range]::-webkit-slider-runnable-track {
     width: 100%;
     height: 9px;
-    background: rgba(142, 197, 223, 0.982);
+    background: rgba(247, 233, 211, 0.982);
     box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
     border: 0.5px solid rgba(0,153,224,0.9);
     border-radius: 1.3px;
@@ -138,7 +170,7 @@ input[type=range]::-webkit-slider-thumb {
 }
 
 input[type=range]:focus::-webkit-slider-runnable-track {
-    background:  rgba(142, 197, 223, 0.982);
+    background:  rgba(247, 233, 211, 0.982);
     border: 0.5px solid rgba(0,153,224,0.9); 
     }
 
@@ -146,7 +178,7 @@ input[type=range]:focus::-webkit-slider-runnable-track {
 input[type=range]::-moz-range-track {
     width: 100%;
     height: 9px;
-    background: rgba(142, 197, 223, 0.982);
+    background: rgba(247, 233, 211, 0.982);
     border: 0.5px solid rgba(0,153,224,0.9);
     border-radius: 1.3px;
     cursor: pointer;

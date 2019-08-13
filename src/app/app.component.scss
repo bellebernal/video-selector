@@ -15,8 +15,5 @@ html {
 app-selector {
     display: flex;
     align-self: flex-start;
-}
-
-app-player {
-    align-self: center;
+    min-height: 100vh;
 }
