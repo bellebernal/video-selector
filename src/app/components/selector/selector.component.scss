@@ -15,14 +15,32 @@ html {
 }
 
 .card-columns {
-        padding: 50px 100px 100px 100px;
+        padding: 100px;
         flex-wrap: wrap;
+        width: 100%;
 }
 
-@media screen and (min-width: 1525px) and (min-width: 1825px){
+.card-columns:fullscreen {
+        padding: 100px 250px 50px 250px;
+        flex-wrap: wrap;
+        width: 100%;
+        column-count: 4;
+}
+
+// @media screen and (min-width: 734px) and (max-width: 875px){
+//         .card-columns {
+//                 padding: 100px 250px 50px 250px;
+//                 flex-wrap: wrap;
+//                 width: 100%;
+//                 column-count: 2;
+//         }
+// }
+
+@media screen and (min-width: 1850px) and (max-width: 1925px){
         .card-columns {
-                padding: 100px 450px 50px 450px;
+                padding: 100px 150px 50px 150px;
                 flex-wrap: wrap;
+                width: 100%;
         }
 }
 
@@ -30,6 +48,7 @@ div.card {
         background: white;
         border-radius: 5px;
         box-shadow: 0 6px 10px rgba(0,0,0,0.16), 0 6px 10px rgba(0,0,0,0.23);
+        width: 100%;
 }
 
 div.card:hover {
@@ -43,7 +62,7 @@ div.card:hover {
 
 
 
-@media screen and (min-width: 500px) and (max-width: 1018px) {
+@media screen and (min-width: 500px) and (max-width: 1198px) {
         html {
                 display: flex;
                 justify-items: flex-start;
@@ -73,6 +92,7 @@ div.card:hover {
         .card-columns {
                 padding: 50px;
                 column-count: 2;
+                width:100%
         }
 }
 
