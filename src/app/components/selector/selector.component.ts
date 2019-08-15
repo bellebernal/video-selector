@@ -1,18 +1,11 @@
-import { 
+import {
   Component,
   OnInit,
   Injectable,
-  Output,
-  EventEmitter,
-  ViewChild,
-  ElementRef
+  Output
 } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { IResponse } from './response.model';
 import { RequestServce } from './request.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Observable } from 'rxjs';
-
 
 @Component({
   selector: 'app-selector',
@@ -22,19 +15,15 @@ import { Observable } from 'rxjs';
 
 @Injectable()
 export class SelectorComponent implements OnInit {
-    fetchedData: IResponse[] = [];
-    private url$: Observable<any>;
-    private id: string;
-    @Output() src: string;
-    // @ViewChild('body') body: ElementRef;
-    // @ViewChild('modal') playerModal: ElementRef;
+    public response: any;
+    public src: string;
+
 
   constructor(
-    private http: HttpClient,
     private requestService: RequestServce,
     private route: ActivatedRoute,
-    private router: Router,
-    ) { }
+    private router: Router
+    ) {}
 
     @Output()
     onGetSource(source: string) {
@@ -42,30 +31,8 @@ export class SelectorComponent implements OnInit {
       console.log(this.src);
     }
 
-    // *TODO*
-      onFetchData() {
-        this.requestService
-        .fetchData()
-        .subscribe(data => {
-          this.fetchedData = data;
-      });
-    }
-
-    // this.requestService
-    // .fetchData()
-    // .subscribe((fetchedData: any) => {
-    //   this.fetchedData = {
-    //     title: fetchedData.title,
-    //     description: fetchedData.description,
-    //     duration: fetchedData.duration,
-    //     url: fetchedData.url
-    //   };
-    // });
-
-    // @Output()
-    // backdropClick: EventEmitter<MouseEvent>
-
   ngOnInit() {
+    this.requestService.ngOnInit();
   }
 
 }

@@ -3,9 +3,10 @@ import {
   OnInit,
   ViewChild,
   ElementRef,
-  Input
+  Input,
 } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { RequestServce } from '../selector/request.service';
 
 
 @Component({
@@ -20,24 +21,17 @@ export class PlayerComponent implements OnInit {
   @ViewChild('playButton') playView: ElementRef;
   @ViewChild('playIcon') playIcon: ElementRef;
   @ViewChild('pauseIcon') pauseIcon: ElementRef;
-  @ViewChild('playerVolume') volumeView: ElementRef;
-  @ViewChild('skipButton') skipView: ElementRef;
+  // @ViewChild('playerVolume') volumeView: ElementRef;
+  // @ViewChild('skipButton') skipView: ElementRef;
   public status: string;
   public isPlaying: boolean;
-  // public max: number;
   public fill: number;
   public currentTime: number;
-  public fillStyle: any;
-  private source: string;
-  // @Input() src: string;
 
-  constructor(private route: ActivatedRoute, private router: Router) { }
-
-  @Input()
-  set src(src: string) {
-    this.source = src;
-    this.videoView.nativeElement.src = this.source;
-  }
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private requestService: RequestServce) { }
 
   togglePlay() {
     status = this.videoView.nativeElement.paused ? 'play' : 'pause';
@@ -47,16 +41,15 @@ export class PlayerComponent implements OnInit {
 
   setUpdatedTime(data) {
     this.currentTime = data.target.currentTime;
-    console.log(this.currentTime);
+    // console.log(this.currentTime);
   }
 
   onProgress() {
-    // this.max = this.videoView.nativeElement.duration;
     this.fillView.nativeElement.value = ( this.currentTime / this.videoView.nativeElement.duration) * 100;
     this.fill = this.fillView.nativeElement.value;
   }
 
-  ngOnInit() {
+  ngOnInit()  {
     this.fillView.nativeElement.addEventListener('change', this.onProgress);
   }
 

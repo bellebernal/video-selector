@@ -1,6 +1,5 @@
 html {
     box-sizing: border-box;
-    // background: black;
     background-size: cover;
     display: flex;
     align-items: center;
@@ -14,7 +13,7 @@ html {
     width: 100%;
     height: 100%;
     z-index: 10;
-    background-color: rgba(0,0,0,0.5); /*dim the background*/
+    background-color: rgba(0,0,0,0.5);
 }
 
 *, *:before, *:after {
@@ -27,16 +26,12 @@ html {
 
 .close-button {
     display: flex;
-    // flex-direction: column-reverse;
     cursor: pointer;
     color: orangered;
-    // align-content: flex-end;
-    // flex-direction: column;
-    // position: absolute;
-    background: rgba(245, 138, 66, 0.3);
+    // background: rgba(245, 138, 66, 0.3);
     top: 0;
     height: 23px;
-    width: 0;
+    width: none;
     transform: translateY(-240%) translate(-5px);
     transition: all .5s;
 }
@@ -53,7 +48,6 @@ html {
     position: relative;
 }
 
-// support full screen
 .player-container:fullscreen {
     width: 100%;
 }
@@ -98,13 +92,6 @@ html {
     cursor: pointer;
 }
 
-// .progress-fill {
-//     display: flex;
-//     flex: 1;
-//     flex-basis: 100%;
-
-// }
-
 .controller-buttons {
     display: flex;
     padding-top: 5px;
@@ -129,7 +116,6 @@ html {
 fa-icon {
     color: white;
     cursor: pointer;
-    //max-width: 50px;
     text-align: center;
     font-size: 1.5rem;
 }

@@ -3,10 +3,20 @@
     <div class="container">
       <h1 class="display-4">Video Library</h1>
       <p class="lead"><i>A simple video selector UI</i></p>
-      <p class="lead">Begin by clicking on a video card to select and view it in a custom-built video player that will display below</p>
+      <p class="lead">Begin by clicking on a video card to view in the overlay of a custom-built video player.</p>
     </div>
   </div>
   <div class="card-columns">
+      <!-- <a [routerLink]="['/player']" routerLinkActive="active" *ngFor="let selector of selectors">
+        <div class="card border-danger mb-3" style="max-width: 18rem;">
+          <img class="card-img-top" src="{{group.screens.views.thumbnail}}" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">{{selector.screens.views.title}}</h5>
+            <p class="card-text">{{selector.screens.views.description}}</p>
+            <p class="card-text"><small>Duration: {{selector.screens.views.info}}</small></p>
+          </div>
+        </div>
+      </a> -->
     <a [routerLink]="['/player']" routerLinkActive="active" (click)='onGetSource("http://test-cdn.selectablemedia.com/test/a/bbb/assets/video/bbb_trailer_1080p.mp4")'>
       <div class="card border-danger mb-3" style="max-width: 18rem;">
         <img class="card-img-top" src="http://test-cdn.selectablemedia.com/test/a/bbb/assets/img/thumb_bbb.png" alt="Card image cap">
@@ -66,4 +76,4 @@
       </a>
   </div>
 </html>
-<router-outlet #modal></router-outlet>
+<router-outlet></router-outlet>

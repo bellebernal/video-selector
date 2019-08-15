@@ -1,6 +1,5 @@
 html {
         background: rgb(225, 222, 222);
-        //background:black;
         background-size: cover;
         display: flex;
 }
@@ -18,15 +17,11 @@ html {
 .card-columns {
         padding: 50px 100px 100px 100px;
         flex-wrap: wrap;
-        
-        // @include media-breakpoint-only(xl) {
-        //   column-count: 5;
-        // }
 }
 
-@media screen and (min-width: 1525px) {
+@media screen and (min-width: 1525px) and (min-width: 1825px){
         .card-columns {
-                padding: 100px 250px 50px 250px;
+                padding: 100px 450px 50px 450px;
                 flex-wrap: wrap;
         }
 }
@@ -49,9 +44,6 @@ div.card:hover {
 
 
 @media screen and (min-width: 500px) and (max-width: 1018px) {
-        // .jumbotron h1 { font-size: 25px; }
-        // .jumbotron p { font-size: 15px; }
-
         html {
                 display: flex;
                 justify-items: flex-start;
@@ -80,15 +72,11 @@ div.card:hover {
 
         .card-columns {
                 padding: 50px;
-                // flex-direction: row;
-                // flex-wrap: wrap;
                 column-count: 2;
         }
 }
 
 @media screen and (orientation: portrait) and (min-width: 325px) and (max-width: 678px) {
-        // .jumbotron h1 { font-size: 25px; }
-        // .jumbotron p { font-size: 15px; }
 
         html {
                 display: flex;

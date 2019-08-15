@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-// import { AppRoutingModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { SelectorComponent } from './components/selector/selector.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -14,12 +13,9 @@ import {
   faPause,
   faTimesCircle
 } from '@fortawesome/free-solid-svg-icons';
-// import {OverlayModule} from '@angular/cdk/overlay';
 import { HttpClientModule } from '@angular/common/http';
 import { Routes, RouterModule } from '@angular/router';
 import { PlayerComponent } from './components/player/player.component';
-// import { AppRoutingModule } from './app.routes';
-// import { ComponentModule } from './components/component.module';
 
 const routes: Routes = [
   {
@@ -42,7 +38,6 @@ const routes: Routes = [
     FontAwesomeModule,
     HttpClientModule,
     RouterModule.forRoot(routes),
-    // OverlayModule
   ],
   providers: [],
   bootstrap: [AppComponent]
