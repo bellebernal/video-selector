@@ -8,6 +8,7 @@ html {
         display: flex;
         flex-wrap: wrap;
         height: 100%;
+        width: 30%;
         margin-left: 10px;
         background: linear-gradient(135deg, #2869EB 0%,#28B0EB 48%,#596BEA 100%);
         color: rgb(225, 222, 222);
@@ -72,6 +73,7 @@ div.card:hover {
         .jumbotron {
                 display: flex;
                 flex-wrap: wrap;
+                width: 100%;
                 margin-left: 0;
                 margin-top: 10px;
                 margin-bottom: 150px;

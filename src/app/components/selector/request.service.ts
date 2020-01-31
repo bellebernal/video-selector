@@ -1,46 +1,60 @@
 // tslint:disable
 
-import { Injectable, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { map } from 'rxjs/operators';
+import { IResponse } from './files.model';
+// import response from '../assets/response.json';
 
 @Injectable({ providedIn: 'root' })
-export class RequestServce {
-    public urlSources = [];
-    public arr = [];
-    public videoData = {};
+export class RequestService {
+    public response: any = [];
+    public videos: any = [];
+    public selectorData: any = [];
+    public videoData: any = [];
+    public playerData: any = [];
 
-    constructor(private http: HttpClient) { }
+    constructor(private http: HttpClient) {}
 
+    // gets data and transforms from json into an array object
     fetchData() {
-        return this.http.get('./assets/response.json');
+        return this.response = this.http
+            .get<{[key: string]: IResponse }>('../assets/response.json')
+            .pipe (
+                map((responseData) => {
+                    const iresponseArray: IResponse[] = [];
+                    for (const key in responseData) {
+                        if (responseData.hasOwnProperty(key)) {
+                            iresponseArray.push({...responseData[key], id: key});
+                        }
+                    } 
+                    console.log(iresponseArray);
+                    return iresponseArray;
+                })
+            );
     }
 
-    onFetchData() {
-        this.fetchData()
-            .subscribe(data => {
-                this.videoData = data['screens'];
-                this.recurseData(this.videoData, this.getSrc);
-            });
-        console.log(this.urlSources);
-        
-    }
+ 
+    // fetchData() {
+    //     return this.http.get('assets/response.json')
+    //     .pipe (  // takes an observable operator, map -- begins our conversion of raw json data into an array object
+    //         map((responseData: { [key:string]: any }) => {  // in this data, there is a key property that we are using as an index of which in angular, index annotations need an explicit type
+    //             const responseArray = [];
+    //             for (const key in responseData) {
+    //                 if (responseData.hasOwnProperty(key)) {  // using our key to strictly target our data object and not the native proto object
+    //                     responseArray.push({...responseData[key], id: key}); // push all (...) data properties additionial to our key data into an array
+    //                     console.log(responseArray);
+    //                 }
+    //             }
+    //         })  
+    //     );
+    // }
 
-    getSrc(key: string, values: any) {
-        if (key === 'url') {
-            this.urlSources.push(values);
-        }
-    }
-
-    recurseData(dataObject, helperFunction) {
-        for (const item in dataObject) {
-            helperFunction.apply(this, [item, dataObject[item]]);
-            if (dataObject[item] !== null && typeof (dataObject[item]) === 'object') {
-                this.recurseData(dataObject[item], helperFunction);
-            }
-        }
-    }
+        // *TODO* : research interface for data binding or prop biniding??
 
     ngOnInit() {
-        this.onFetchData();
+        this.fetchData();
+        // console.log(this.selectorData);
+        // this.afterFetch();
     }
 }

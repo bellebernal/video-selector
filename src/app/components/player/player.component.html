@@ -2,27 +2,26 @@
 <html>
   <div class="player-container">
     <a class="close-button" [routerLink]="['']" routerLinkActive="active">
-      <fa-icon [icon]="['fas', 'times-circle']"></fa-icon>
-     </a>
-    <video class="video-content" #videoContent (timeupdate)="setUpdatedTime($event)" src="http://test-cdn.selectablemedia.com/test/a/bbb/assets/video/bbb_trailer_1080p.mp4"></video>
-    <!-- <video class="video-content" #videoContent (timeupdate)="setUpdatedTime($event)" src="{{this.source}}"></video> -->
+        <fa-icon [icon]="['fas', 'times-circle']" style="color:darkcyan"></fa-icon>
+    </a>
+    <video class="video-content" #videoContent (timeupdate)="setUpdatedTime($event)" (loadedmetadata)="onProgress($event)" src="http://test-cdn.selectablemedia.com/test/a/bbb/assets/video/bbb_trailer_1080p.mp4"></video>
     <div class="player-controller" #player>
-      <div class="progress-bar" #progressBar change="onProgress();" [ngStyle]="{ 'width': this.fill + '%' }">
-        <progress class="progress-fill" #progressFill min="0" max="40" value={{this.currentTime}} [ngStyle]="{'width': this.fill + '%'}"></progress>
+      <div class="progress-bar" #progressBar change="onProgress()">
+        <progress class="progress-fill" #progressFill value={{this.currentTime}} min=0 max={{this.maxTime}}></progress>
       </div>
       <div class="controller-buttons">
-        <button class="play-button" (click)="togglePlay($event.paused)" #playButton>
+        <button class="play-button" #play (click)="togglePlay($event.paused)">
             <fa-icon #playIcon [icon]="['fas', 'play']" *ngIf="!isPlaying" (click)="!isPlaying = isPlaying"></fa-icon>
             <fa-icon #pauseIcon [icon]="['fas', 'pause']" *ngIf="isPlaying" (click)="isPlaying = !isPlaying"></fa-icon>
         </button>
         <fa-icon [icon]="['fas', 'volume-up']"></fa-icon>
-        <input type="range" name="volume" class="player-volume" #playerVolume min="0" max="1" step="0.1" value="1">
-        <button skip="-10" class="player-skip-button" #skipButton>
+        <input class="player-volume" #volume type="range" name="volume" min="0" max="1" step="0.1" value="1">
+        <button class="skip-button" #skipButton (click)="onSkip($event)" data-skip="-10">
           <div>
             <fa-icon [icon]="['fas','backward']"></fa-icon>
           </div>
         </button>
-        <button skip="10" class="player-skip-button" #skipButton>
+        <button class="skip-button" #skipButton (click)="onSkip($event)" data-skip="10">
           <div>
             <fa-icon [icon]="[fas,'forward']"></fa-icon>
           </div>

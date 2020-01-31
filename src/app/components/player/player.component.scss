@@ -1,3 +1,4 @@
+// display the component on overlay on top of selector (home) component
 html {
     box-sizing: border-box;
     background-size: cover;
@@ -11,7 +12,7 @@ html {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: auto;
     z-index: 10;
     background-color: rgba(0,0,0,0.5);
 }
@@ -26,24 +27,24 @@ html {
 
 .close-button {
     display: flex;
+    // this combo flex directive breaks the X close functionality BUT it correctly display the close button styling-wise
+    flex-direction: column;
+    position: absolute;
     cursor: pointer;
-    color: orangered;
-    // background: rgba(245, 138, 66, 0.3);
     top: 0;
-    height: 23px;
-    width: none;
     transform: translateY(-240%) translate(-5px);
     transition: all .5s;
 }
 
 .close-button:hover fa-icon {
-    color: rgba(255,136,0,0.9);
+    color: darkred;
 }
 
 .player-container {
+    height: auto;
     max-width: 875px;
-    border: 2px solid rgba(0,153,224,0.9);
-    box-shadow: 0 0 10px rgba(255,136,0,0.9);
+    border: 2px solid darkgray;
+    box-shadow: 0 0 10px lightcyan;
     overflow: hidden;
     position: relative;
 }
@@ -57,9 +58,10 @@ html {
 }
 
 .video-content {
-    height: 100%;
+    height: auto;
     width: 100%;
     margin-bottom: -1%;
+    pointer-events: none; // fixes note from line 30
 }
 
 .player-container:hover .progress-bar {
@@ -85,11 +87,18 @@ html {
 .progress-bar {
     position: relative;
     display: flex;
-    //flex-basis: 100%;
+    flex: 10;
+    flex-basis: 100%;
     height: 100%;
     transition: height 0.3s;
     background: rgba(0,0,0,0.4);
     cursor: pointer;
+}
+
+.progress-fill {
+    width: 100%;
+    flex: 0;
+    flex-basis: 50%;
 }
 
 .controller-buttons {
@@ -98,7 +107,7 @@ html {
     padding-bottom: 5px;
 }
 
-.play-button, .player-skip-button {
+.play-button, .skip-button {
     display: flex;
     background: none;
     border: 0;
@@ -109,12 +118,12 @@ html {
     max-width: 50px;
 }
 
-.play-button:focus fa-icon, .player-skip-button:focus fa-icon {
-    color: rgba(255,136,0,0.9);
+.play-button:focus fa-icon, .skip-button:focus fa-icon {
+    color: darkcyan;
 }
 
 fa-icon {
-    color: white;
+    color: whitesmoke;
     cursor: pointer;
     text-align: center;
     font-size: 1.5rem;
@@ -139,7 +148,7 @@ input[type=range]:focus {
 input[type=range]::-webkit-slider-runnable-track {
     width: 100%;
     height: 9px;
-    background: rgba(247, 233, 211, 0.982);
+    background: whitesmoke;
     box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
     border: 0.5px solid rgba(0,153,224,0.9);
     border-radius: 1.3px;
@@ -151,12 +160,12 @@ input[type=range]::-webkit-slider-thumb {
     width: 16px;
     height: 16px;
     margin-top: -3.5px;
-    background: rgba(255,136,0,0.9);
+    background: darkcyan;
     cursor: pointer;
 }
 
 input[type=range]:focus::-webkit-slider-runnable-track {
-    background:  rgba(247, 233, 211, 0.982);
+    background:  whitesmoke;
     border: 0.5px solid rgba(0,153,224,0.9); 
     }
 
@@ -164,7 +173,7 @@ input[type=range]:focus::-webkit-slider-runnable-track {
 input[type=range]::-moz-range-track {
     width: 100%;
     height: 9px;
-    background: rgba(247, 233, 211, 0.982);
+    background: whitesmoke;
     border: 0.5px solid rgba(0,153,224,0.9);
     border-radius: 1.3px;
     cursor: pointer;
@@ -173,6 +182,6 @@ input[type=range]::-moz-range-track {
 input[type=range]::-moz-range-thumb {
     width: 16px;
     height: 16px;
-    background: rgba(255,136,0,0.9);
+    background: darkcyan;
     cursor: pointer;
 }

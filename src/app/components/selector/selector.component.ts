@@ -4,7 +4,7 @@ import {
   Injectable,
   Output
 } from '@angular/core';
-import { RequestServce } from './request.service';
+// import { RequestServce } from './request.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -20,7 +20,7 @@ export class SelectorComponent implements OnInit {
 
 
   constructor(
-    private requestService: RequestServce,
+    // private requestService: RequestServce,
     private route: ActivatedRoute,
     private router: Router
     ) {}
@@ -32,7 +32,7 @@ export class SelectorComponent implements OnInit {
     }
 
   ngOnInit() {
-    this.requestService.ngOnInit();
+    // this.requestService.ngOnInit();
   }
 
 }
