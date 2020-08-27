@@ -16,12 +16,12 @@
         </button>
         <fa-icon [icon]="['fas', 'volume-up']"></fa-icon>
         <input class="player-volume" #volume type="range" name="volume" min="0" max="1" step="0.1" value="1">
-        <button class="skip-button" #skipButton (click)="onSkip($event)" data-skip="-10">
+        <button class="skip-button" #skipButton (click)="onSkip(currentTime)" data-skip="-10">
           <div>
             <fa-icon [icon]="['fas','backward']"></fa-icon>
           </div>
         </button>
-        <button class="skip-button" #skipButton (click)="onSkip($event)" data-skip="10">
+        <button class="skip-button" #skipButton (click)="onSkip(currentTime)" data-skip="10">
           <div>
             <fa-icon [icon]="[fas,'forward']"></fa-icon>
           </div>
